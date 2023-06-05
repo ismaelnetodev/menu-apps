@@ -35,7 +35,7 @@ frame_baixo.grid(row=1, column=0, sticky=NW)
 # Configurando o parte cima ---------------------------------------
 app_x = Label(frame_cima, text='X', height=1, relief='flat', anchor='center', font=('Ivy 40 bold'), bg=co1, fg=co7 )
 app_x.place(x=25, y=10)
-app_x = Label(frame_cima, text='Jogador 1', height=1, relief='flat', anchor='center', font=('Ivy 7 bold'), bg=co1, fg=co0 )
+app_x = Label(frame_cima, text='Turma 1', height=1, relief='flat', anchor='center', font=('Ivy 7 bold'), bg=co1, fg=co0 )
 app_x.place(x=17, y=70)
 app_x_pontos = Label(frame_cima, text='0', height=1, relief='flat', anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0 )
 app_x_pontos.place(x=80, y=20)
@@ -45,7 +45,7 @@ app_separador.place(x=110, y=20)
 
 app_o = Label(frame_cima, text='O', height=1, relief='flat', anchor='center', font=('Ivy 40 bold'), bg=co1, fg=co4 )
 app_o.place(x=170, y=10)
-app_o = Label(frame_cima, text='Jogador 2', height=1, relief='flat', anchor='center', font=('Ivy 7 bold'), bg=co1, fg=co0 )
+app_o = Label(frame_cima, text='Turma 2', height=1, relief='flat', anchor='center', font=('Ivy 7 bold'), bg=co1, fg=co0 )
 app_o.place(x=165, y=70)
 app_o_pontos = Label(frame_cima, text='0', height=1, relief='flat', anchor='center', font=('Ivy 30 bold'), bg=co1, fg=co0 )
 app_o_pontos.place(x=130, y=20)
@@ -389,12 +389,12 @@ def iniciar_jogo():
 
         if i =='X':
             score_2+=1
-            app_vencedor['text'] = 'Joagador 2 venceu'
+            app_vencedor['text'] = 'Turma 2 venceu'
             app_o_pontos['text'] =score_2
 
         if i =='O':
             score_1+=1
-            app_vencedor['text'] = 'Joagador 1 venceu'
+            app_vencedor['text'] = 'Turma 1 venceu'
             app_x_pontos['text'] =score_1
 
         if i=='Foi empate':

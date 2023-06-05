@@ -1,38 +1,50 @@
-from tkinter import*
+from tkinter import *
+import os
 
 janela = Tk()
+janela.geometry("500x500")
+janela.title("Formulário")
 
-janela.title("botao")
+titulo = Label(janela, text="Formulário de Inscrição")
+titulo.pack()
 
-janela.geometry ("600x600")
+def informacoes():
+    nome_info = nome.get()
+    senha_info = senha.get()
+    lang_info = lang.get()
 
-
-def enter_menu():
+    with open("nome.txt", "w") as file:
+        file.write(nome_info)
     janela.destroy()
-    with open("menu.py", 'r') as menu:
-        code = menu.read()
-        exec(code)
+    os.system("menu.py")
+    print(f"Nome: {nome_info}\n Senha: {senha_info}\n Linguagem: {lang_info}")
+
+lbNome = Label(janela, text="Digite seu nome: ")
+lbSenha = Label(janela, text="Crie uma Senha")
+lbLinguagem = Label(janela, text="Selecione a linguagem que você quer aprender:")
+
+lbNome.place(x=15, y=70)
+lbSenha.place(x=15, y=140)
+lbLinguagem.place(x=15, y=210)
+
+nome = StringVar()
+senha = StringVar()
+lang = IntVar()
 
 
-'''
-img = PhotoImage(file="divertidamente-removebg-preview.png")
-area_img= Label(janela,image=img)
-area_img.pack()'''
+eNome = Entry(janela, textvariable=nome, width=30)
+eSenha = Entry(janela, textvariable=senha, show='*', width=30)
+eLinguagem1 = Radiobutton(janela, text="Python", variable=lang, value=1)
+eLinguagem2 = Radiobutton(janela, text="Java", variable=lang, value=2)
+eLinguagem3 = Radiobutton(janela, text="C/C++", variable=lang, value=3)
 
+eNome.place(x=15, y=100)
+eSenha.place(x=15, y=180)
+eLinguagem1.place(x=15, y=240)
+eLinguagem2.place(x=80, y=240)
+eLinguagem3.place(x=130, y=240)
 
-usuario= Label(janela,text="Usuário")
-usuario.pack()
-campo_usuario= Entry(janela)
-campo_usuario.pack()
-
-senha = Label(janela, text="Senha")
-senha.pack()
-campo_senha= Entry(janela)
-campo_senha.pack()
-
-nomeUser = campo_usuario.get()
-
-btn1 = Button(janela, text="Entrar!", command=enter_menu)
-btn1.pack(side=TOP)
+submit = Button(janela, text="Enviar!", width="30", height="2", command=informacoes)
+submit.place(x=15, y=290)
 
 janela.mainloop()
