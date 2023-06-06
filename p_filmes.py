@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import requests
 from PIL import ImageTk, Image
+import subprocess
 
 api = '46ebbd3a' #this api might be unavailable \\ Essa API pode estar esgotada
 
@@ -45,6 +46,11 @@ def show_movie_info():
     else:
         messagebox.showinfo("Erro", "Selecione um filme da lista.")
 
+
+def voltar_menu():
+    window.destroy()
+    subprocess.call(['python', 'menu.py'])
+
 # Criar a janela principal
 window = tk.Tk()
 window.title("Pesquisar Filmes")
@@ -77,6 +83,8 @@ info_button.grid(row=2, column=0, columnspan=4, padx=100, pady=20, sticky='nsew'
 # Configurar o layout da grade
 window.grid_columnconfigure(1, weight=1)
 window.grid_rowconfigure(1, weight=1)
+
+window.protocol("WM_DELETE_WINDOW", voltar_menu)
 
 # Executar o loop principal da janela
 window.mainloop()

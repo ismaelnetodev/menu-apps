@@ -1,28 +1,33 @@
 import tkinter
 from tkinter import *
 from tkinter import ttk
-
+import subprocess
+from tkinter import messagebox
 
 # cores ---------------------------------------
 co0 = "#FFFFFF"  # branca / white
-co1 = "#333333"  # preta pesado / dark black
-co2 = "#fcc058"  # laranja / orange
+co1 = "#1d1313"  # preta pesado / dark black
+co2 = "#a3b808"  # laranja / orange - verde
 co3 = "#38576b"  # valor / value
-co4 = "#3297a8"   # azul / blue
-co5 = "#fff873"   # amarela / yellow
+co4 = "#e6c636"   # azul / blue
+co5 = "#d22042"   # amarela / yellow
 co6 = "#fcc058"  # laranja / orange
-co7 = "#e85151"   # vermelha / red
+co7 = "#3f3ce6"   # vermelha / red
 co8 = co4   # + verde
 co10 ="#fcfbf7"
-fundo = "#3b3b3b" # preta / black
+fundo = "#1d1313" # preta / black
 
 # criando janela principal
 janela = Tk()
 janela.title('')
 janela.geometry('260x370')
 janela.configure(bg=fundo)
+janela.iconbitmap("imgs\jogo.ico")
 
 
+def voltar_menu():
+    janela.destroy()
+    subprocess.call(['python', 'menu.py'])
 # aqui a gente vai dividir a janela em 2  partes ---------------------------------------
 
 frame_cima = Frame(janela, width=240, height=100, bg=co1, relief="raised")
@@ -391,14 +396,23 @@ def iniciar_jogo():
             score_2+=1
             app_vencedor['text'] = 'Turma 2 venceu'
             app_o_pontos['text'] =score_2
+            if score_2 == 3:
+                messagebox.showinfo("Turma 2", "A vitória é da Turma 2")
+                app_vencedor['text'] = 'Turma 2 ganhou'
+                app_x_pontos['text'] =score_2
 
         if i =='O':
             score_1+=1
             app_vencedor['text'] = 'Turma 1 venceu'
             app_x_pontos['text'] =score_1
+            if score_1 == 3:
+                messagebox.showinfo("Turma 1", "A vitória é da Turma 1")
+                app_vencedor['text'] = 'Turma 1 ganhou'
+                app_x_pontos['text'] =score_1
 
         if i=='Foi empate':
             app_vencedor['text'] = 'Foi um empate'
+
 
         def start():
             # limpando os botoes
@@ -436,7 +450,7 @@ def iniciar_jogo():
 
             terminar()
 
-        if contador_de_rodada>=5:
+        if contador_de_rodada>=3:
             jogo_acabou()
         else:
             contador_de_rodada+=1
@@ -535,5 +549,5 @@ def iniciar_jogo():
 b_jogar = Button(frame_baixo, command=iniciar_jogo, text='Jogar', width=10, height=1,  font=('Ivy 10 bold'), overrelief=RIDGE, relief='raised', bg=fundo, fg=co0 )
 b_jogar.place(x=85, y=197)
 
-
+janela.protocol("WM_DELETE_WINDOW", voltar_menu)
 janela.mainloop()

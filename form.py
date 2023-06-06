@@ -22,7 +22,6 @@ def informacoes():
         file.write(nome_info)
     janela.destroy()
     os.system("menu.py")
-    print(f"Nome: {nome_info}\n Senha: {senha_info}\n Linguagem: {lang_info}")
 
 def fechar():
     janela.destroy()
