@@ -8,6 +8,7 @@ janela = Tk()
 janela.geometry("500x500")
 janela.configure(bg=c_bg)
 janela.title("Formulário")
+janela.overrideredirect(1)
 
 titulo = Label(janela, text="Formulário de Inscrição", font="Arial 18", bg=c_bg, fg=white_color)
 titulo.pack()
@@ -22,6 +23,9 @@ def informacoes():
     janela.destroy()
     os.system("menu.py")
     print(f"Nome: {nome_info}\n Senha: {senha_info}\n Linguagem: {lang_info}")
+
+def fechar():
+    janela.destroy()
 
 lbNome = Label(janela, text="Digite seu nome: ", font="Arial 14", bg=c_bg, fg=white_color)
 lbSenha = Label(janela, text="Crie uma Senha", font="Arial 14", bg=c_bg, fg=white_color)
@@ -50,5 +54,7 @@ eLinguagem3.place(x=130, y=240)
 
 submit = Button(janela, text="Enviar!", width="20", height="2", command=informacoes, font="Arial 14")
 submit.place(x=15, y=290)
+
+sair = Button(janela, text="X", command=fechar, width=2, height=1, font="Arial 16").place(x="460", y="5")
 
 janela.mainloop()
