@@ -1,11 +1,15 @@
 from tkinter import *
 import os
 
+c_bg = "#c9d1c9"
+white_color = "#000"
+
 janela = Tk()
 janela.geometry("500x500")
+janela.configure(bg=c_bg)
 janela.title("Formulário")
 
-titulo = Label(janela, text="Formulário de Inscrição")
+titulo = Label(janela, text="Formulário de Inscrição", font="Arial 18", bg=c_bg, fg=white_color)
 titulo.pack()
 
 def informacoes():
@@ -19,9 +23,9 @@ def informacoes():
     os.system("menu.py")
     print(f"Nome: {nome_info}\n Senha: {senha_info}\n Linguagem: {lang_info}")
 
-lbNome = Label(janela, text="Digite seu nome: ")
-lbSenha = Label(janela, text="Crie uma Senha")
-lbLinguagem = Label(janela, text="Selecione a linguagem que você quer aprender:")
+lbNome = Label(janela, text="Digite seu nome: ", font="Arial 14", bg=c_bg, fg=white_color)
+lbSenha = Label(janela, text="Crie uma Senha", font="Arial 14", bg=c_bg, fg=white_color)
+lbLinguagem = Label(janela, text="Selecione a linguagem que você quer aprender:", font="Arial 14", bg=c_bg, fg=white_color)
 
 lbNome.place(x=15, y=70)
 lbSenha.place(x=15, y=140)
@@ -34,9 +38,9 @@ lang = IntVar()
 
 eNome = Entry(janela, textvariable=nome, width=30)
 eSenha = Entry(janela, textvariable=senha, show='*', width=30)
-eLinguagem1 = Radiobutton(janela, text="Python", variable=lang, value=1)
-eLinguagem2 = Radiobutton(janela, text="Java", variable=lang, value=2)
-eLinguagem3 = Radiobutton(janela, text="C/C++", variable=lang, value=3)
+eLinguagem1 = Radiobutton(janela, text="Python", variable=lang, value=1, bg=c_bg, fg=white_color)
+eLinguagem2 = Radiobutton(janela, text="Java", variable=lang, value=2, bg=c_bg, fg=white_color)
+eLinguagem3 = Radiobutton(janela, text="C/C++", variable=lang, value=3, bg=c_bg, fg=white_color)
 
 eNome.place(x=15, y=100)
 eSenha.place(x=15, y=180)
@@ -44,7 +48,7 @@ eLinguagem1.place(x=15, y=240)
 eLinguagem2.place(x=80, y=240)
 eLinguagem3.place(x=130, y=240)
 
-submit = Button(janela, text="Enviar!", width="30", height="2", command=informacoes)
+submit = Button(janela, text="Enviar!", width="20", height="2", command=informacoes, font="Arial 14")
 submit.place(x=15, y=290)
 
 janela.mainloop()
