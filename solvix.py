@@ -6,6 +6,7 @@ import tkinter
 from tkinter import *
 import threading
 from PIL import Image, ImageTk
+import subprocess
 
 openai.api_key = IAKEY
 giveAnswer = False
@@ -40,6 +41,10 @@ lbinfo = Label(root, text=status, font="Verdana 12", wraplength=400, justify=LEF
 lbinfo.place(x=300, y=400)
 
 
+def voltar_menu():
+    root.destroy()
+    subprocess.call(['python', 'menu.py'])
+
 def generate_answer(messages):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",  ##
@@ -56,9 +61,6 @@ def talk(texto):
     engine.runAndWait()
     engine.stop()
 
-
-def sair():
-    root.destroy()
 
 def speechRecognition():
     global question
@@ -106,11 +108,9 @@ lbImage_bot.place(x=300, y=50)
 
 micIcon = ImageTk.PhotoImage(Image.open("imgs\microphone.png"))
 btnFalar = Button(root, text="Falar", command=threadSpeechRecognition, padx=15, pady=15, image=micIcon, compound=LEFT)
-btnParar = Button(root, text="Sair", command=sair, padx=23, pady=23)
+btnParar = Button(root, text="Sair", command=voltar_menu, padx=23, pady=23)
 
 btnFalar.place(x=330, y=325)
 btnParar.place(x=460, y=325)
-
-
 
 root.mainloop()
