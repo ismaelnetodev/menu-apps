@@ -54,6 +54,6 @@ eLinguagem3.place(x=130, y=240)
 submit = Button(janela, text="Enviar!", width="20", height="2", command=informacoes, font="Arial 14")
 submit.place(x=15, y=290)
 
-sair = Button(janela, text="X", command=fechar, width=2, height=1, font="Arial 16").place(x="460", y="5")
+sair = Button(janela, text="X", command=fechar, width=2, font="Arial 18").place(x="462", y="3")
 
 janela.mainloop()
