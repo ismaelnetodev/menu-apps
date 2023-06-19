@@ -5,17 +5,17 @@ import subprocess
 from tkinter import messagebox
 
 # cores ---------------------------------------
-co0 = "#FFFFFF"  # branca / white
-co1 = "#1d1313"  # preta pesado / dark black
-co2 = "#a3b808"  # laranja / orange - verde
-co3 = "#38576b"  # valor / value
-co4 = "#e6c636"   # azul / blue
-co5 = "#d22042"   # amarela / yellow
-co6 = "#fcc058"  # laranja / orange
-co7 = "#3f3ce6"   # vermelha / red
-co8 = co4   # + verde
+co0 = "#FFFFFF" 
+co1 = "#1d1313" 
+co2 = "#a3b808"  
+co3 = "#38576b" 
+co4 = "#e6c636"   
+co5 = "#d22042" 
+co6 = "#fcc058" 
+co7 = "#3f3ce6" 
+co8 = co4 
 co10 ="#fcfbf7"
-fundo = "#1d1313" # preta / black
+fundo = "#1d1313"
 
 # criando janela principal
 janela = Tk()
